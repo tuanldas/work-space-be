@@ -1,0 +1,44 @@
+services:
+    nginx:
+        build:
+            context: ./
+            dockerfile: docker/nginx/Dockerfile
+        volumes:
+            - ./docker/nginx/nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro
+            - ./:/var/www/app
+        depends_on:
+            - php-fpm
+        networks:
+            - default
+
+    php-fpm:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/var/www/app
+        command: [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
+        networks:
+            - default
+
+    mysql:
+        platform: linux/amd64
+        build:
+            context: .
+            dockerfile: docker/mysql/Dockerfile
+        environment:
+            MYSQL_DATABASE: '${DB_DATABASE}'
+        volumes:
+            - mysql_data:/var/lib/mysql
+        networks:
+            - default
+
+    redis:
+        image: redis:alpine
+        networks:
+            - default
+
+volumes:
+    mysql_data:
+        name: ${VOLUME_MYSQL_LIB}
+        external: true
