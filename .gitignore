@@ -25,3 +25,4 @@ Homestead.json
 
 .idea/sonarlint
 docker-compose.override.yml
+compose.override.yml
