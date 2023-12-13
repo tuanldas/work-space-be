@@ -18,4 +18,4 @@ services:
 networks:
   publish:
     external: true
-    name: ${NGINX_CLOUD_NETWORK}
+    name: ${PUBLISH_NETWORK}
