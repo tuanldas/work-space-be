@@ -2,14 +2,10 @@
 
 namespace Tests;
 
-use App\User;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
 use Laravel\Passport\ClientRepository;
-use Laravel\Passport\Passport;
 
 abstract class TestCase extends BaseTestCase
 {
