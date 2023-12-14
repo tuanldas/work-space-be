@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group(function () {
-    Route::post('login', 'AuthController@login');
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 });
