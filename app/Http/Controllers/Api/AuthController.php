@@ -27,7 +27,24 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
-            )->toDateTimeString()
+            )->toDateTimeString(),
+            'user_information' => [
+                "uuid" => $user->uuid,
+                "name" => $user->name
+            ]
+        ]);
+    }
+
+    public function logout(): JsonResponse
+    {
+        if (Auth::check()) {
+            Auth::user()->token()->revoke();
+            return response()->json([
+                'message' => 'Logout thành công.'
+            ]);
+        }
+        return response()->json([
+            'message' => 'Bạn chưa đăng nhập.'
         ]);
     }
 }
