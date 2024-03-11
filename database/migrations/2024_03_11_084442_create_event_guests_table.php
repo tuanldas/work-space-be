@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('event_guests', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index()->unique();
+            $table->uuid()->index()->unique();
             $table->foreignId('event_id')->constrained('events');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

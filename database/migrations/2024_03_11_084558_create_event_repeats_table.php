@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('event_repeats', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index()->unique();
+            $table->uuid()->index()->unique();
             $table->foreignId('event_id')->constrained('events');
             $table->integer('repeating_pattern');
             $table->timestamps();

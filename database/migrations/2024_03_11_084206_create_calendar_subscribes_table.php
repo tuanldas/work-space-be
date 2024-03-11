@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('calendar_subscribes', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index()->unique();
+            $table->uuid()->index()->unique();
             $table->foreignId('subscribers')->constrained('users');
             $table->foreignId('calendar_id')->constrained('calendars');
             $table->string('color', 10);

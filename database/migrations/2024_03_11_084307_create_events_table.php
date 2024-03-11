@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index()->unique();
+            $table->uuid()->index()->unique();
             $table->foreignId('event_person')->constrained('users');
             $table->foreignId('calendar_id')->constrained('calendars');
             $table->boolean('is_repeat')->default(false);
