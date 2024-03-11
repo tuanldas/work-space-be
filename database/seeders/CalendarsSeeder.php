@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\CalendarSubscribeModel;
+use App\Models\CalendarModel;
 use Illuminate\Database\Seeder;
 
-class CalendarSubscribeSeeder extends Seeder
+class CalendarsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        CalendarSubscribeModel::factory()
+        CalendarModel::factory()
             ->count(10)
             ->create();
     }
