@@ -58,7 +58,10 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 RUN if [ $WITH_XDEBUG = "true" ] ; then \
         pecl install xdebug; \
-        docker-php-ext-enable xdebug; \
+        docker-php-ext-enable xdebug;
+
+        echo "$1";
+
     fi ;
 
 COPY . ./
