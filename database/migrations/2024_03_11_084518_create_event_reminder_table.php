@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained('events');
             $table->string('type', 20);
             $table->integer('interval');
-            $table->smallInteger('unit');
+            $table->string('unit', 15);
             $table->timestamps();
         });
     }

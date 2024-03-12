@@ -3,19 +3,18 @@
 namespace Database\Factories;
 
 use App\Models\EventModel;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class EventReminderFactory extends Factory
+class EventGuestModelFactory extends Factory
 {
     public function definition(): array
     {
         return [
             'uuid' => Str::uuid(),
             'event_id' => EventModel::factory(),
-            'type' => 1,
-            'interval' => 1,
-            'unit' => 'days',
+            'user_id' => User::factory(),
         ];
     }
 }
