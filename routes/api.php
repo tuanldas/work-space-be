@@ -7,3 +7,13 @@ Route::group([
 ], function () {
     Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 });
+
+Route::group([
+    'middleware' => 'auth:api'
+], function() {
+    Route::group([
+        'prefix' => 'events'
+    ], function() {
+        Route::get('/', [\App\Http\Controllers\CalendarController::class, 'getEvents']);
+    });
+});
