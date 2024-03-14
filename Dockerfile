@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 ARG WWWGROUP
 ARG WITH_XDEBUG=false
@@ -58,10 +58,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 RUN if [ $WITH_XDEBUG = "true" ] ; then \
         pecl install xdebug; \
-        docker-php-ext-enable xdebug;
-
-        echo "$1";
-
+        docker-php-ext-enable xdebug; \
     fi ;
 
 COPY . ./
