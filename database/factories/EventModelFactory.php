@@ -15,8 +15,6 @@ class EventModelFactory extends Factory
             'uuid' => Str::uuid(),
             'event_person' => User::factory(),
             'calendar_id' => CalendarModel::factory(),
-            'is_repeat' => false,
-            'is_all_day' => false,
             'title' => $this->faker->sentence,
             'start_time' => $this->faker->dateTimeThisMonth(),
             'end_time' =>  $this->faker->dateTimeThisMonth(),
