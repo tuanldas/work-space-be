@@ -6,7 +6,7 @@
 
 <div class="auth-page-wrapper pt-5">
     <!-- auth page bg -->
-    <div class="auth-one-bg-position auth-one-bg"  id="auth-particles">
+    <div class="auth-one-bg-position auth-one-bg" style="background: none" id="auth-particles">
         <div class="bg-overlay"></div>
 
         <div class="shape">
@@ -28,23 +28,6 @@
                         <div class="mb-5">
                             <h1 class="display-2 coming-soon-text">Coming Soon</h1>
                         </div>
-                        <div>
-                            <div class="row justify-content-center mt-5">
-                                <div class="col-lg-8">
-                                    <div id="countdown" class="countdownlist"></div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5">
-                                <h3>Get notified when we launch</h3>
-                                <p class="text-muted">Don't worry we will not spam you 😊</p>
-                            </div>
-
-                            <div class="input-group countdown-input-group mx-auto my-4">
-                                <input type="email" class="form-control border-light shadow" placeholder="Enter your email address" aria-label="search result" aria-describedby="button-email">
-                                <button class="btn btn-success" type="button" id="button-email">Send<i class="ri-send-plane-2-fill align-bottom ms-2"></i></button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -53,21 +36,7 @@
         </div>
         <!-- end container -->
     </div>
-    <!-- end auth page content -->
 
-    <!-- footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <p class="mb-0 text-muted">&copy; <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end Footer -->
 </div>
 <!-- end auth-page-wrapper -->
 @endsection
