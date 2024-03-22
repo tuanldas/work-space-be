@@ -12,16 +12,18 @@ class EventRepository extends EloquentRepository implements EventRepositoryInter
         return EventModel::class;
     }
 
-    public function getEventsByDate(string $getStartDate, string $getEndDate)
+    public function getEventsByDate(int $userId, string $getStartDate, string $getEndDate)
     {
         return $this->model
-            ->whereBetween( 'start_time', [$getStartDate, $getEndDate])
+            ->leftJoin('event_guests', 'events.id', '=', 'event_guests.event_id')
+            ->whereBetween('start_time', [$getStartDate, $getEndDate])
+            ->where('user_id', $userId)
             ->select([
-                'id',
-                'uuid',
-                'title',
-                'start_time',
-                'end_time',
+                'events.id',
+                'events.uuid',
+                'events.title',
+                'events.start_time',
+                'events.end_time',
             ])
             ->get();
     }

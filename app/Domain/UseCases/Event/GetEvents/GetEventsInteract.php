@@ -4,6 +4,7 @@ namespace App\Domain\UseCases\Event\GetEvents;
 
 use App\Domain\Interfaces\ViewModel;
 use App\Repositories\Interface\EventRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class GetEventsInteract implements GetEventsInputPorts
 {
@@ -16,7 +17,7 @@ class GetEventsInteract implements GetEventsInputPorts
 
     public function getEvents(GetEventsRequestModel $model): ViewModel
     {
-        $events = $this->repository->getEventsByDate($model->getStartDate(), $model->getEndDate());
+        $events = $this->repository->getEventsByDate(Auth::user()->id, $model->getStartDate(), $model->getEndDate());
         return $this->output->getEvents(new GetEventsResponseModel($events->toArray()));
     }
 }
