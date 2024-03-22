@@ -17,7 +17,7 @@ class GetEventsInteract implements GetEventsInputPorts
 
     public function getEvents(GetEventsRequestModel $model): ViewModel
     {
-        $events = $this->repository->getEventsByDate(Auth::user()->id, $model->getStartDate(), $model->getEndDate());
+        $events = $this->repository->getEventsByDate(Auth::id(), $model->getStartDate(), $model->getEndDate());
         return $this->output->getEvents(new GetEventsResponseModel($events->toArray()));
     }
 }
