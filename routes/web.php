@@ -3,5 +3,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    view('index');
+    return view('pages-coming-soon');
 });
