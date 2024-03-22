@@ -4,18 +4,18 @@ namespace App\Domain\UseCases\Event\GetEvents;
 class GetEventsRequestModel
 {
     public function __construct(
-        private string $startDate,
-        private string $endDate
-    ) {
+        private $attributes,
+    )
+    {
     }
 
     public function getStartDate(): string
     {
-        return $this->startDate;
+        return $this->attributes['start_date'];
     }
 
     public function getEndDate(): string
     {
-        return $this->endDate;
+        return $this->attributes['end_date'];
     }
 }

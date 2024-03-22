@@ -14,6 +14,6 @@ Route::group([
     Route::group([
         'prefix' => 'events'
     ], function() {
-        Route::get('/', [\App\Http\Controllers\CalendarController::class, 'getEvents']);
+        Route::get('/', [\App\Http\Controllers\Api\CalendarController::class, 'getEvents']);
     });
 });
