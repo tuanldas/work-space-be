@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Repositories\Interface\RepositoryInterface;
 
-class EloquentRepository implements RepositoryInterface
+abstract class EloquentRepository implements RepositoryInterface
 {
     protected $model;
 
@@ -13,10 +13,7 @@ class EloquentRepository implements RepositoryInterface
         $this->setModel();
     }
 
-    public function getModel()
-    {
-        return $this->model;
-    }
+    abstract public function getModel();
 
     public function setModel(): void
     {

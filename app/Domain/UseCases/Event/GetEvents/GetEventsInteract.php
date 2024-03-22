@@ -2,21 +2,21 @@
 
 namespace App\Domain\UseCases\Event\GetEvents;
 
-use App\Domain\Interfaces\Event\EventFactory;
+use App\Domain\Interfaces\ViewModel;
 use App\Repositories\Interface\EventRepositoryInterface;
 
 class GetEventsInteract implements GetEventsInputPorts
 {
     public function __construct(
-        private GetEventsOutputPorts     $output,
+        private GetEventsOutputPort      $output,
         private EventRepositoryInterface $repository,
-        private EventFactory             $factory
     )
     {
     }
 
-    public function getEvents(GetEventsRequestModel $model): GetEventsResponseModel
+    public function getEvents(GetEventsRequestModel $model): ViewModel
     {
-        $events = $this->repository->getEvents($model->getStartDate(), $model->getEndDate());
+        $events = $this->repository->getEventsByDate($model->getStartDate(), $model->getEndDate());
+        return $this->output->getEvents(new GetEventsResponseModel($events->toArray()));
     }
 }

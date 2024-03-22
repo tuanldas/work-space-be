@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories\Interface;
-interface EventRepositoryInterface
+interface EventRepositoryInterface extends RepositoryInterface
 {
-    public function getEvents(string $getStartDate, string $getEndDate);
+    public function getEventsByDate(string $getStartDate, string $getEndDate);
 }
