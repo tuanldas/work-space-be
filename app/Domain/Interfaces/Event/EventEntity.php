@@ -29,4 +29,8 @@ interface EventEntity
     public function setEventPerson(int $userId);
 
     public function getEventPerson();
+
+    public function setCalendarId(int $id);
+
+    public function getCalendarId();
 }

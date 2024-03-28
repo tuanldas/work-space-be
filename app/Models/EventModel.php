@@ -11,6 +11,13 @@ class EventModel extends Model implements EventEntity
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'start_time',
+        'end_time',
+        'calendar_id',
+        'event_person'
+    ];
     protected $table = 'events';
 
     public function getId()
@@ -35,7 +42,7 @@ class EventModel extends Model implements EventEntity
 
     public function setStartTime(Carbon $startTime): void
     {
-        $this->attributes['start_time'] = $startTime->utc();
+        $this->attributes['start_time'] = $startTime;
     }
 
     public function getStartTime()
@@ -45,7 +52,7 @@ class EventModel extends Model implements EventEntity
 
     public function setEndTime(Carbon $endTime): void
     {
-        $this->attributes['end_time'] = $endTime->utc();
+        $this->attributes['end_time'] = $endTime;
     }
 
     public function getEndTime()
@@ -71,5 +78,15 @@ class EventModel extends Model implements EventEntity
     public function getEventPerson()
     {
         return $this->attributes['event_person'];
+    }
+
+    public function setCalendarId(int $id): void
+    {
+        $this->attributes['calendar_id'] = $id;
+    }
+
+    public function getCalendarId()
+    {
+        return $this->attributes['calendar_id'];
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
-class GetEventRequest extends FormRequest
+class GetEventsRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,8 +16,10 @@ class GetEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'start_date' => 'required|date',
-            'end_date' => 'required|date'
+            'title' => 'required|string',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date',
+            'calendar_id' => 'required'
         ];
     }
 }
