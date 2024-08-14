@@ -13,7 +13,7 @@ class GetProjectDetailInteract implements GetProjectDetailInputPort
     {
     }
 
-    public function handle($uuid)
+    public function handle($uuid, $userId)
     {
         $project = $this->projectRepository->findByUUID($uuid, ['*'], ['users.userProfile']);
         if (!$project) {
