@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Task;
 
 use App\Http\Resources\Train\RemoveMetaAndLinksInCollection;
 use Illuminate\Http\Request;

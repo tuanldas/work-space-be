@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Project;
 
 use App\Constants\ProjectStatusEnum;
 use App\Http\Resources\Train\RemoveMetaAndLinksInCollection;

@@ -6,9 +6,7 @@ use App\Adapters\Presenters\JsonPresenterHelpers;
 use App\Adapters\ViewModels\JsonResourceViewModel;
 use App\Domain\UseCases\Project\GetProjectDetail\GetProjectDetailOutputPort;
 use App\Domain\UseCases\Project\GetProjectDetail\GetProjectDetailResponseModel;
-use App\Http\Resources\GetProjectDetailResource;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\Project\GetProjectDetailResource;
 
 class GetProjectDetailJsonPresenter implements GetProjectDetailOutputPort
 {

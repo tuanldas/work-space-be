@@ -6,7 +6,7 @@ use App\Adapters\ViewModels\JsonResourceViewModel;
 use App\Domain\Interfaces\ViewModel;
 use App\Domain\UseCases\Project\GetProjects\GetProjectsOutputPort;
 use App\Domain\UseCases\Project\GetProjects\GetProjectsResponseModel;
-use App\Http\Resources\GetProjectCollection;
+use App\Http\Resources\Project\GetProjectCollection;
 
 class GetProjectsJsonPresenter implements GetProjectsOutputPort
 {
