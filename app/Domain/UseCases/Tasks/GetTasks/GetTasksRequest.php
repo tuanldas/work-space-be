@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Domain\UseCases\Tasks\GetTasks;
-readonly class GetTasksRequest
+
+use App\Constants\TaskPreviewType;
+
+class GetTasksRequest
 {
     /**
-     * @param array{project_uuid: string|null, userId: int} $filters
+     * @param array{project_uuid: string|null, userId: int, preview_type: TaskPreviewType} $filters
      */
     public function __construct(
         private array $filters
     )
     {
+        $this->filters['preview_type'] = $filters['preview_type'] ?? TaskPreviewType::COLUMN;
     }
 
     public function getFilters(): array
@@ -25,5 +29,10 @@ readonly class GetTasksRequest
     public function getUserId()
     {
         return $this->filters['userId'];
+    }
+
+    public function getPreviewType()
+    {
+        return $this->filters['preview_type'];
     }
 }
