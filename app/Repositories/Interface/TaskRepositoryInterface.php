@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Interface;
 
-use App\Filters\TaskFilter;
+use App\Filters\TasksFilter;
 
 interface TaskRepositoryInterface extends RepositoryInterface
 {
-    public function getTasks(TaskFilter $filters);
+    public function getTasks(TasksFilter $filters);
 }

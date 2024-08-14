@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Projects;
 
 use App\Domain\UseCases\Project\GetProjects\GetProjectsInputPort;
+use App\Domain\UseCases\Project\GetProjects\GetProjectsRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GetProjectController extends Controller
 {
@@ -18,7 +20,9 @@ class GetProjectController extends Controller
 
     public function __invoke()
     {
-        $projects = $this->getProjectsInputPorts->getProjects();
+        $projects = $this->getProjectsInputPorts->getProjects(new GetProjectsRequest([
+            'user_id' => Auth::id()
+        ]));
         return $projects->getResource();
     }
 }

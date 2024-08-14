@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 
-class TaskFilter implements FiltersContract
+class TasksFilter implements FiltersContract
 {
     private Collection $filters;
     private Builder|EloquentBuilder $builder;

@@ -3,5 +3,5 @@
 namespace App\Domain\UseCases\Tasks\GetTasks;
 interface GetTasksInputPort
 {
-    public function handle(GetTaskRequest $getTaskRequest);
+    public function handle(GetTasksRequest $getTaskRequest);
 }

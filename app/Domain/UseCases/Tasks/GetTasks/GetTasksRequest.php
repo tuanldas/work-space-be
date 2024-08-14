@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Domain\UseCases\Tasks\GetTasks;
-readonly class GetTaskRequest
+readonly class GetTasksRequest
 {
     public function __construct(
         private array $filters

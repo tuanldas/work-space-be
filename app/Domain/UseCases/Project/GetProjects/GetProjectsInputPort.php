@@ -3,5 +3,5 @@
 namespace App\Domain\UseCases\Project\GetProjects;
 interface GetProjectsInputPort
 {
-    public function getProjects();
+    public function getProjects(GetProjectsRequest $request);
 }

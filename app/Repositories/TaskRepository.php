@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Filters\TaskFilter;
+use App\Filters\TasksFilter;
 use App\Models\Task;
 use App\Repositories\Interface\TaskRepositoryInterface;
 
@@ -13,7 +13,7 @@ class TaskRepository extends EloquentRepository implements TaskRepositoryInterfa
         return Task::class;
     }
 
-    public function getTasks(TaskFilter $filters)
+    public function getTasks(TasksFilter $filters)
     {
         $query = $this->model->select(['*']);
         $filters->applyTo($query);
