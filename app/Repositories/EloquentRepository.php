@@ -41,7 +41,7 @@ abstract class EloquentRepository implements RepositoryInterface
         return $this->model->select($columns)->find($id);
     }
 
-    public function findByUUID($filters, $columns = ['*'], $relations = [])
+    public function filters($filters, $columns = ['*'], $relations = [])
     {
         $query = $this->model->select($columns);
         if (!empty($relations)) {

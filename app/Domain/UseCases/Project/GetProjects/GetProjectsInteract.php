@@ -2,7 +2,7 @@
 
 namespace App\Domain\UseCases\Project\GetProjects;
 
-use App\Filters\ProjectsFilter;
+use App\Filters\Project\ProjectsFilter;
 use App\Repositories\Interface\ProjectRepositoryInterface;
 
 class GetProjectsInteract implements GetProjectsInputPort

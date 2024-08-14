@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Filters\ProjectsFilter;
+use App\Filters\Project\ProjectsFilter;
 use App\Models\Project;
 use App\Repositories\Interface\ProjectRepositoryInterface;
 
@@ -21,10 +21,5 @@ class ProjectRepository extends EloquentRepository implements ProjectRepositoryI
             ->orderBy('id', 'desc');
         $filters->applyTo($query);
         return $query->paginate(15);
-    }
-
-    public function getProjectByUuid(string $getProjectUUid)
-    {
-        return $this->model->where('uuid', $getProjectUUid)->first();
     }
 }
