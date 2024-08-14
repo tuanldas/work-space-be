@@ -2,6 +2,7 @@
 
 namespace App\Domain\UseCases\Tasks\GetTasks;
 
+use App\Filters\Project\ProjectDetailFilter;
 use App\Filters\TasksFilter;
 use App\Repositories\Interface\ProjectRepositoryInterface;
 use App\Repositories\Interface\TaskRepositoryInterface;
@@ -27,7 +28,10 @@ class GetTasksInteract implements GetTasksInputPort
     {
         $filters = new TasksFilter();
         if ($getTaskRequest->getProjectUUid()) {
-            $project = $this->projectRepository->getProjectByUuid($getTaskRequest->getProjectUUid());
+            $project = $this->projectRepository->filters(new ProjectDetailFilter([
+                'userId' => $getTaskRequest->getUserId(),
+                'projectUUid' => $getTaskRequest->getProjectUUid()
+            ]));
             if (!$project) {
                 return $this->output->projectNotFound();
             }

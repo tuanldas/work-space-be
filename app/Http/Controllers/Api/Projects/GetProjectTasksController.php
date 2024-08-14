@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\Projects;
 
-use App\Domain\UseCases\Tasks\GetTasks\GetTasksRequest;
 use App\Domain\UseCases\Tasks\GetTasks\GetTasksInputPort;
+use App\Domain\UseCases\Tasks\GetTasks\GetTasksRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class GetProjectTasksController extends Controller
@@ -22,7 +23,10 @@ class GetProjectTasksController extends Controller
         if (!Str::isUuid($projectUuid)) {
             return response()->json(['message' => 'Invalid project uuid'], 400);
         }
-        $projects = $this->getTasksInputPort->handle(new GetTasksRequest(['project_uuid' => $projectUuid]));
+        $projects = $this->getTasksInputPort->handle(new GetTasksRequest([
+            'project_uuid' => $projectUuid,
+            'userId' => Auth::id()
+        ]));
         return $projects->getResource();
     }
 }
