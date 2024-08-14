@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Projects;
 
 use App\Domain\UseCases\Project\GetProjectDetail\GetProjectDetailInputPort;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GetProjectDetailController extends Controller
 {
@@ -15,7 +16,7 @@ class GetProjectDetailController extends Controller
 
     public function __invoke($uuid)
     {
-        $jsonResource = $this->inputPort->handle($uuid);
+        $jsonResource = $this->inputPort->handle($uuid, Auth::id());
         return $jsonResource->getResource()
             ->response()
             ->setStatusCode($jsonResource->getStatusCode());

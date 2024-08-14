@@ -41,12 +41,13 @@ abstract class EloquentRepository implements RepositoryInterface
         return $this->model->select($columns)->find($id);
     }
 
-    public function findByUUID($uuid, $columns = ['*'], $relations = [])
+    public function filters($filters, $columns = ['*'], $relations = [])
     {
         $query = $this->model->select($columns);
         if (!empty($relations)) {
             $query = $query->with($relations);
         }
-        return $query->where('uuid', $uuid)->first();
+        $filters->applyTo($query);
+        return $query->first();
     }
 }

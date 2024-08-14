@@ -15,5 +15,5 @@ interface RepositoryInterface
 
     public function find($id, $columns = ['*']);
 
-    public function findByUUID($uuid, $columns = ['*'], $relations = []);
+    public function filters($filters, $columns = ['*'], $relations = []);
 }

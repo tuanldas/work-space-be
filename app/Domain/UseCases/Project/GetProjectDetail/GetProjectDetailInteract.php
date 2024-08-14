@@ -2,6 +2,7 @@
 
 namespace App\Domain\UseCases\Project\GetProjectDetail;
 
+use App\Filters\Project\ProjectDetailFilter;
 use App\Repositories\Interface\ProjectRepositoryInterface;
 
 class GetProjectDetailInteract implements GetProjectDetailInputPort
@@ -13,9 +14,12 @@ class GetProjectDetailInteract implements GetProjectDetailInputPort
     {
     }
 
-    public function handle($uuid)
+    public function handle($uuid, $userId)
     {
-        $project = $this->projectRepository->findByUUID($uuid, ['*'], ['users.userProfile']);
+        $project = $this->projectRepository->filters(new ProjectDetailFilter([
+            'userId' => $userId,
+            'projectUUid' => $uuid
+        ]), ['*'], ['users.userProfile']);
         if (!$project) {
             return $this->output->projectNotFound();
         }
